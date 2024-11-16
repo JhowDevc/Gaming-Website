@@ -1,0 +1,799 @@
+/* Reset e Configurações Básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Remove a margem e o preenchimento padrão de todos os elementos e define o modelo de box-sizing como border-box. */
+
+:root {
+    --primary: #ff0000;
+    --secondary: #ff4500;
+    --background: #000000;
+    --text-color: #ffffff;
+}
+/* Define variáveis CSS para cores usadas na página. */
+
+body {
+    position: relative;
+    background-color: var(--background);
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+/* Define o corpo da página com posição relativa, cor de fundo preta, usa a fonte 'Roboto', ocupa 100% da largura e tem altura mínima de 100vh, com overflow oculto horizontal. */
+
+/* Fontes Customizadas */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.8);
+}
+/* O cabeçalho está fixado no topo, com padding reduzido para melhor adaptação em telas menores e fundo semitransparente para melhor legibilidade. */
+
+.logo img {
+    max-width: 60px;
+    max-height: 60px;
+    filter: invert(1);
+    transition: transform 0.5s ease;
+}
+
+.logo:hover img {
+    transform: rotate(540deg) scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+nav {
+    flex-grow: 1;
+    margin-left: 50px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav li {
+    list-style-type: none;
+}
+
+.nav li a {
+    color: var(--text-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 1px;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav li:hover a {
+    color: var(--primary);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.login-btn {
+    padding: 10px 20px;
+    background-color: var(--secondary);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+}
+
+.login-btn:hover {
+    background-color: #e03e00;
+}
+
+.search {
+    position: relative;
+    width: 130px;
+    height: 40px;
+    transition: width 0.5s ease;
+}
+
+.search:hover {
+    width: 300px;
+}
+
+.search input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--text-color);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    outline: none;
+    border-radius: 4px;
+    padding: 0 10px 0 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.search input::placeholder {
+    color: var(--text-color);
+    text-transform: uppercase;
+    transform: translateX(5px);
+    font-weight: 300;
+}
+
+/* Botão de Menu Hamburger */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Escondido por padrão, exibido via media queries */
+}
+
+/* Swiper Styles */
+.swiper {
+    width: 100%;
+    height: 100vh;
+}
+
+.swiper .swiper-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper .swiper-wrapper .swiper-slide {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.swiper .swiper-wrapper .swiper-slide::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.swiper .swiper-wrapper .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.banner-image {
+    position: absolute;
+    max-width: 700px;
+    transform: translateX(-50%);
+    z-index: 1;
+    left: 50%;
+    width: 50%;
+    height: auto;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 400px;
+    z-index: 2;
+}
+
+.features {
+    margin-bottom: 50px;
+}
+
+.rating {
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.score {
+    padding: 15px;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--primary);
+    background: #ffffff;
+    border-radius: 5px;
+}
+
+.content {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing {
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+}
+
+.pricing .content h4 {
+    color: var(--text-color);
+    font-size: 1.5em;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.pricing .content span {
+    font-size: 0.7em;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.subtitle {
+    color: var(--primary);
+}
+
+.saiba-mais-btn {
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.saiba-mais-btn:hover {
+    background-color: #e03e00;
+    transform: scale(1.05);
+}
+
+.comprar-btn {
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.comprar-btn:hover {
+    background-color: #e03e00;
+    transform: scale(1.05);
+}
+
+.banner h1 {
+    color: var(--text-color);
+    font-size: 5em;
+    letter-spacing: 5px;
+    line-height: 0.9;
+    z-index: 10;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.right {
+    max-height: 70vh;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.description {
+    padding: 30px 60px 0 0;
+    color: var(--text-color);
+    list-style: none;
+}
+
+.description li {
+    margin-bottom: 10px;
+}
+
+.description h4 {
+    font-size: 1.3em;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.description p {
+    margin: 5px 0 25px 30px;
+    font-weight: 300;
+}
+
+.right h2 {
+    color: var(--text-color);
+    font-size: 3.5em;
+    line-height: 1em;
+    font-weight: 400;
+    text-align: right;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.right iframe {
+    max-width: 560px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    z-index: 2;
+    border: none;
+    border-radius: 8px;
+}
+
+.trailer h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    display: none; /* Removido para usar ícones Font Awesome */
+}
+
+.swiper-button-prev i,
+.swiper-button-next i {
+    color: var(--background);
+    font-size: 20px;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.modal.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.modal-content p {
+    color: #666;
+    margin: 10px 0;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.close-btn {
+    background-color: var(--secondary);
+    color: var(--text-color);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.close-btn:hover {
+    background-color: #e03e00;
+    transform: scale(1.05);
+}
+
+/* Rodapé */
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsividade */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .nav {
+        display: none; /* Esconde a navegação padrão */
+    }
+
+    /* Estilos para o menu dropdown */
+    .nav.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 80%;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .nav.active li {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block; /* Exibe o botão de menu */
+    }
+
+    .swiper .swiper-wrapper .swiper-slide .banner {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .banner-image {
+        position: static;
+        transform: none;
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+
+    .left,
+    .right {
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .right {
+        max-height: none;
+    }
+
+    .description {
+        padding: 20px 0 0 0;
+    }
+
+    .trailer iframe {
+        max-width: 100%;
+    }
+
+    .banner h1 {
+        font-size: 3em;
+    }
+
+    .right h2 {
+        font-size: 2em;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 30px;
+        height: 30px;
+    }
+
+    .swiper-button-prev i,
+    .swiper-button-next i {
+        font-size: 16px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 20px;
+    }
+
+    .logo img {
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+    .header-right {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .login-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .search {
+        width: 100px;
+    }
+
+    .search:hover {
+        width: 200px;
+    }
+
+    .banner h1 {
+        font-size: 2.5em;
+        letter-spacing: 3px;
+    }
+
+    .right h2 {
+        font-size: 1.8em;
+    }
+
+    .trailer h2 {
+        font-size: 1.2em;
+    }
+
+    .right iframe {
+        height: 200px;
+    }
+
+    .banner .left .features .score {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+
+    .banner .left .features .content h4 {
+        font-size: 1.2em;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 25px;
+        height: 25px;
+    }
+
+    .swiper-button-prev i,
+    .swiper-button-next i {
+        font-size: 14px;
+    }
+
+    .modal-content {
+        padding: 15px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.5em;
+    }
+
+    .modal-content p {
+        font-size: 0.9em;
+    }
+
+    .comprar-btn {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .close-btn {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Pequenos Dispositivos */
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .search {
+        width: 80px;
+    }
+
+    .search:hover {
+        width: 150px;
+    }
+
+    .swiper .swiper-wrapper .swiper-slide .banner {
+        padding: 10px;
+    }
+
+    .banner h1 {
+        font-size: 2em;
+        letter-spacing: 2px;
+    }
+
+    .right h2 {
+        font-size: 1.5em;
+    }
+
+    .trailer h2 {
+        font-size: 1.2em;
+    }
+
+    .trailer iframe {
+        height: 200px;
+    }
+
+    .banner .left .features .content h4 {
+        font-size: 1em;
+    }
+
+    .banner .left .features .content span {
+        font-size: 0.6em;
+    }
+
+    .score {
+        font-size: 1.2rem;
+        padding: 8px;
+    }
+
+    .modal-content {
+        padding: 10px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.2em;
+    }
+
+    .modal-content p {
+        font-size: 0.8em;
+    }
+
+    .comprar-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .close-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 20px;
+        height: 20px;
+    }
+
+    .swiper-button-prev i,
+    .swiper-button-next i {
+        font-size: 12px;
+    }
+}
+
+/* Melhorias Gerais */
+.banner .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.banner .right .trailer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.banner .right .trailer iframe {
+    border: none;
+    border-radius: 8px;
+}
+
+.banner .right .trailer h2 {
+    margin-bottom: 10px;
+}
+
+.pokemon {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+}
+
+.zelda {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+}
+
+/* Ajustes para evitar sobreposição de vídeos */
+.right iframe {
+    z-index: 2;
+}
+
+/* Garantir que as imagens não se sobreponham */
+.banner-image {
+    z-index: 1;
+}
+
+.banner .left,
+.banner .right {
+    z-index: 2;
+}
